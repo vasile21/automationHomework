@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="trace">
+    <Appenders>
+
+        <!-- Logger for Console Appender -->
+        <Console name="consoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+
+        <!-- Logger for File Appender -->
+        <File name="fileAppender" fileName="demoApplication.log">
+            <PatternLayout pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+
+    </Appenders>
+
+    <Loggers>
+        <!-- Logger for custom packages -->
+        <Logger name="testrunners" level="debug" additivity="false">
+            <AppenderRef ref="consoleAppender" />
+            <AppenderRef ref="fileAppender" />
+        </Logger>
+        <Root level="trace">
+            <AppenderRef ref="consoleAppender" level="all"/>
+            <AppenderRef ref="fileAppender" level="all"/>
+        </Root>
+    </Loggers>
+</Configuration>
